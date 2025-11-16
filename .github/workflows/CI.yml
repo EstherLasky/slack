@@ -2,8 +2,7 @@ name: Slack Connection CI
 
 on:
   push:
-    branches:
-      - main
+
 jobs:
   test-and-lint:
     runs-on: ubuntu-latest
