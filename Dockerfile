@@ -10,4 +10,4 @@ RUN npm install
 
 COPY . .
 
-ENTRYPOINT [ "npm", "start" ]
+ENTRYPOINT [ "npx", "tsx", "src/index.ts"]

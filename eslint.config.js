@@ -1,19 +1,14 @@
-const js = require("@eslint/js");
-const { defineConfig } = require("eslint/config");
-const globals = require("globals");
+import tseslint from 'typescript-eslint';
 
-module.exports = defineConfig([
-    {
-        files: ["**/*.js", "**/*.cjs"],
-        languageOptions: {
-            sourceType: "commonjs",
-            ecmaVersion: "latest",
-            globals: {
-                ...globals.browser,
-                ...globals.jest,
-                ...globals.node,
-              }
-        },
-        ...js.configs.recommended,
+export default [
+  ...tseslint.configs.recommended,
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parser: tseslint.parser,
     },
-]);
+    rules: {
+      "@typescript-eslint/no-explicit-any": ["off"]
+    },
+  },
+];
