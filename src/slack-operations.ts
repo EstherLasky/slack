@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import { WebClient } from '@slack/web-api';
 
 import { ResponseObject } from './response-object';
+import { AddChannelResponseDataType } from './types/data';
 
 dotenv.config();
 
@@ -14,7 +15,7 @@ export class SlackOperations {
         this.web = new WebClient(token);
     }
 
-    async addMessage(channel: string, text: string): Promise<ResponseObject> {
+    async addMessage(channel: string, text: string): Promise<ResponseObject<string>> {
         try {
             const result = await this.web.chat.postMessage({
                 channel,
@@ -27,7 +28,7 @@ export class SlackOperations {
         }
     }
 
-    async addUserToChannel(channel: string, userId: string): Promise<ResponseObject> {
+    async addUserToChannel(channel: string, userId: string): Promise<ResponseObject<string>> {
         try {
             await this.web.conversations.invite({
                 channel,
@@ -40,7 +41,7 @@ export class SlackOperations {
         }
     }
 
-    async addChannel(channelName: string): Promise<ResponseObject> {
+    async addChannel(channelName: string): Promise<ResponseObject<AddChannelResponseDataType|string>> {
         try {
             const result = await this.web.conversations.create({
                 name: channelName,
@@ -58,7 +59,7 @@ export class SlackOperations {
         }
     }
 
-    async removeChannel(channelId: string): Promise<ResponseObject> {
+    async removeChannel(channelId: string): Promise<ResponseObject<string>> {
         try {
             await this.web.conversations.archive({
                 channel: channelId,

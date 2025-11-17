@@ -1,20 +1,18 @@
-import { ResponseDataType } from "./types/data";
-
-export class ResponseObject {
+export class ResponseObject<T> {
     isSuccess: boolean;
-    data: ResponseDataType;
+    data: T;
 
-    constructor(isSuccess = true, data: ResponseDataType = null) {
+    constructor(isSuccess = true, data: T) {
         this.isSuccess = isSuccess;
         this.data = data;
     }
 
-    static success(data: ResponseDataType): ResponseObject {
-        return new ResponseObject(true, data);
+    static success<T>(data: T): ResponseObject<T> {
+        return new ResponseObject<T>(true, data);
     }
 
-    static error(message: string): ResponseObject {
-        return new ResponseObject(false, message);
+    static error(message: string): ResponseObject<string> {
+        return new ResponseObject<string>(false, message);
     }
 }
 

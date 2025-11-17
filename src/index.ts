@@ -5,7 +5,7 @@ import { AddChannelResponseDataType } from './types/data';
 async function main() {
     try {
         const slackOperations = new SlackOperations();
-        const addChannelResponse: ResponseObject = await slackOperations.addChannel('channel-test-2');
+        const addChannelResponse: ResponseObject<AddChannelResponseDataType|string> = await slackOperations.addChannel('channel-test-2');
         if(!addChannelResponse.isSuccess) {
             throw new Error('Failed to create channel');
         }
