@@ -5,7 +5,7 @@ This project uses the Slack WEB API to create an automatic connection list to Sl
 ## Technologies and Languages Used
 
 * Node.js
-* JavaScript
+* TypeScript
 * Docker
 
 ## How to Use with Docker
