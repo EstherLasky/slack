@@ -1,0 +1,29 @@
+{
+  "name": "slack",
+  "version": "1.0.0",
+  "description": "Create an automatic connection list to Slack via the WEB API",
+  "main": "./src/index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/index.ts",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "author": "",
+  "dependencies": {
+    "@slack/web-api": "^7.12.0",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "jest": "^30.2.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4"
+  }
+}
