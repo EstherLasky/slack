@@ -50,8 +50,8 @@ export class SlackOperations {
                 throw new Error('Channel creation failed');
             }
             return ResponseObject.success({
-                channelId: result.channel.id,
-                channelName: result.channel.name,
+                channelId: result.channel.id!,
+                channelName: result.channel.name!,
             });
         }
         catch (error: any) {
